@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #5c1823;
+  font-family: 'Georgia', serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Screen visibility controls */
+.screen {
+  display: none;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* Base Card Styling */
+.card {
+  background-color: #fbeee0;
+  padding: 28px 22px;
+  border-radius: 20px;
+  text-align: center;
+  width: 90%;
+  max-width: 380px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+}
+
+/* --- SCREEN 1: FIXED ENVELOPE & SVG HEART --- */
+.envelope {
+  position: relative;
+  width: 320px;
+  height: 200px;
+  background-color: #fceee3;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s ease;
+}
+
+.envelope:hover {
+  transform: scale(1.02);
+}
+
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid #f2decb;
+  border-right: 160px solid #f2decb;
+  border-top: 110px solid transparent;
+  z-index: 2;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-top: 115px solid #ebd2bd;
+  z-index: 3;
+}
+
+.heart-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 78px;
+  height: 70px;
+  z-index: 4;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.2));
+  transition: transform 0.2s ease;
+}
+
+.heart-seal:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.heart-seal svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- SCREEN 2: CALENDAR --- */
+.sub-title {
+  color: #8b1d2c;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.month-title {
+  color: #2b2b2b;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  font-size: 13px;
+  color: #444;
+  align-items: center;
+}
+
+.day-name {
+  font-weight: bold;
+  font-size: 10px;
+  color: #8b1d2c;
+  margin-bottom: 4px;
+}
+
+.special-day {
+  position: relative;
+  background-color: #a82e3e;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0 auto;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.special-day:hover {
+  transform: scale(1.15);
+}
+
+.heart-sticker {
+  position: absolute;
+  bottom: -7px;
+  right: -5px;
+  font-size: 11px;
+}
+
+/* --- SCREEN 3: GIFTS MENU --- */
+.menu-header {
+  font-style: italic;
+  color: #8b1d2c;
+  font-size: 26px;
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.gifts-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.gift-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.gift-item:hover {
+  transform: scale(1.1);
+}
+
+.gift-icon {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.gift-label {
+  font-size: 12px;
+  color: #555;
+  font-style: italic;
+}
+
+.menu-footer {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2b2b2b;
+}
+
+/* --- TITLES & BACK BUTTON --- */
+.title-heading {
+  color: #8b1d2c;
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #8b1d2c;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  font-style: italic;
+  font-size: 12px;
+  margin-top: 15px;
+}
+
+/* --- SCREEN 4: MESSAGE CARD --- */
+.letter-body {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* --- SCREEN 5: CAKE CARD --- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 115px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.wish {
+  font-style: italic;
+  color: #555;
+  font-size: 13px;
+}
+
+/* --- SCREEN 6: WISH CARD --- */
+.wish-instruction {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.wish-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 70px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 13px;
+  resize: none;
+  background-color: #fff;
+}
+
+.submit-btn {
+  background-color: #f3d0d0;
+  border: 1px solid #c97d7d;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  color: #555;
+}
+
+.submit-btn:hover {
+  background-color: #ebbebe;
+}
+
+.confirmation-msg {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: #8b1d2c;
+  margin-top: 12px;
+}
+
+.confirmation-msg.show {
+  display: block;
+}

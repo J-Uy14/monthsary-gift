@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 44th Monthsary!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SCREEN 1: ENVELOPE -->
+  <div id="screen1" class="screen active">
+    <div class="envelope" onclick="goToScreen('screen2')">
+      <div class="envelope-back"></div>
+      <div class="envelope-pocket"></div>
+      <div class="envelope-flap"></div>
+      <div class="heart-seal">
+        <svg viewBox="0 0 100 90">
+          <path d="M 50,85 C 50,85 5,55 5,28 C 5,10 20,2 35,2 C 43,2 48,8 50,12 C 52,8 57,2 65,2 C 80,2 95,10 95,28 C 95,55 50,85 50,85 Z" fill="#9e2a2b"/>
+          <text x="50" y="44" fill="#ffffff" font-size="13" font-family="'Georgia', serif" font-style="italic" text-anchor="middle">Open me!</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: CALENDAR -->
+  <div id="screen2" class="screen">
+    <div class="card">
+      <h2 class="sub-title">TODAY IS OUR SPECIAL DAY</h2>
+      <h1 class="month-title">October</h1>
+
+      <div class="calendar-grid">
+        <div class="day-name">MON</div>
+        <div class="day-name">TUE</div>
+        <div class="day-name">WED</div>
+        <div class="day-name">THU</div>
+        <div class="day-name">FRI</div>
+        <div class="day-name">SAT</div>
+        <div class="day-name">SUN</div>
+
+        <!-- Blank spaces for October offset -->
+        <div></div><div></div>
+
+        <!-- Days 1 to 13 -->
+        <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+        <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+        <div>11</div><div>12</div><div>13</div>
+
+        <!-- Highlighted Monthsary Day 14 -->
+        <div class="special-day" onclick="goToScreen('screen3')">
+          14
+          <span class="heart-sticker">❤️</span>
+        </div>
+
+        <div>15</div><div>16</div><div>17</div><div>18</div><div>19</div>
+        <div>20</div><div>21</div><div>22</div><div>23</div><div>24</div>
+        <div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
+        <div>30</div><div>31</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: GIFTS MENU -->
+  <div id="screen3" class="screen">
+    <div class="card">
+      <h1 class="menu-header">These are</h1>
+
+      <div class="gifts-row">
+        <div class="gift-item" onclick="goToScreen('screen4')">
+          <div class="gift-icon">✉️</div>
+          <span class="gift-label">message</span>
+        </div>
+
+        <div class="gift-item" onclick="goToScreen('screen5')">
+          <div class="gift-icon">🍰</div>
+          <span class="gift-label">cake</span>
+        </div>
+
+        <div class="gift-item" onclick="goToScreen('screen6')">
+          <div class="gift-icon">🎁</div>
+          <span class="gift-label">something</span>
+        </div>
+      </div>
+
+      <p class="menu-footer">Special gift for u!</p>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: MESSAGE GIFT -->
+  <div id="screen4" class="screen">
+    <div class="card">
+      <h1 class="title-heading">Happy Monthsary To My beloved Handsome Boyfriend ❤️</h1>
+
+      <div class="letter-body">
+        <p>Hey Daddy,</p>
+        <p>
+          Today is our special day! Happy 44th monthsary to the most incredible man in my life! Every single day with you is a gift, and I'm so grateful for all the quiet moments, late-night calls, and big adventures we've shared. You bring so much calm, happiness, and strength into my world, and I hope this coming month brings you all the success and joy you truly deserve. I can't wait to celebrate you today and keep building this amazing life together.
+        </p>
+        <p>I love you my Daddy ❤️</p>
+      </div>
+
+      <button class="back-btn" onclick="goToScreen('screen3')">Back to Gifts</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 5: CAKE GIFT (4-PHOTO COLLAGE) -->
+  <div id="screen5" class="screen">
+    <div class="card">
+      <h1 class="title-heading">A Cake Full Of Love</h1>
+
+      <div class="photo-grid">
+        <img src="photo1.jpg" alt="Photo 1">
+        <img src="photo2.jpg" alt="Photo 2">
+        <img src="photo3.jpg" alt="Photo 3">
+        <img src="photo4.jpg" alt="Photo 4">
+      </div>
+
+      <p class="wish">Wish you a day full of laughter and happiness!</p>
+
+      <button class="back-btn" onclick="goToScreen('screen3')">Back to Gifts</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 6: SOMETHING GIFT (MAKE A WISH) -->
+  <div id="screen6" class="screen">
+    <div class="card">
+      <h1 class="title-heading">Make a Monthsary Wish ✨</h1>
+      <p class="wish-instruction">Type your wish below and lock it in!</p>
+
+      <div class="wish-form">
+        <textarea id="user-wish" placeholder="I wish for..."></textarea>
+        <button class="submit-btn" onclick="submitWish()">Send Wish ❤️</button>
+      </div>
+
+      <p id="wish-confirmation" class="confirmation-msg">
+        Your wish has been saved and sent to my heart!
+      </p>
+
+      <button class="back-btn" onclick="goToScreen('screen3')">Back to Gifts</button>
+    </div>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bg-music" src="Coldplay - Sparks.mp3" loop></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
